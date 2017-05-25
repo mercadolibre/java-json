@@ -29,12 +29,12 @@ And the dependencies themselves
 <dependency>
     <groupId>com.mercadolibre.json</groupId>
     <artifactId>json-core</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 </dependency>
 
 <dependency>
     <groupId>com.mercadolibre.json_jackson</groupId>
     <artifactId>json-jackson</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 </dependency>
 ```
