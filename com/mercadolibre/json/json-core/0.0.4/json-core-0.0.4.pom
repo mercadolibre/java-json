@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mercadolibre.json_jackson</groupId>
-	<artifactId>json-jackson</artifactId>
-	<version>0.0.3</version>
+	<groupId>com.mercadolibre.json</groupId>
+	<artifactId>json-core</artifactId>
+	<version>0.0.4</version>
 	<packaging>jar</packaging>
 
-	<name>json-jackson</name>
+	<name>json-core</name>
 	<url>https://github.com/mercadolibre/java-json</url>
 
 	<properties>
@@ -20,17 +20,6 @@
 		<connection>scm:git:git@github.com:mercadolibre/java-json.git</connection>
 		<developerConnection>scm:git:git@github.com:mercadolibre/java-json.git</developerConnection>
 	</scm>
-
-	<repositories>
-	    <repository>
-	        <id>java-json-mvn-repo</id>
-	        <url>https://raw.github.com/mercadolibre/java-json/mvn-repo/</url>
-	        <snapshots>
-	            <enabled>true</enabled>
-	            <updatePolicy>always</updatePolicy>
-	        </snapshots>
-	    </repository>
-	</repositories>
 
   	<distributionManagement>
     	<repository>
@@ -52,28 +41,6 @@
 					<target>1.7</target>
 					<optimize>true</optimize>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.10</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-							<includeScope>compile</includeScope>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 			<plugin>
@@ -102,14 +69,13 @@
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
 				<configuration>
-	                <message>Maven artifacts for json-jackson ${project.version}</message>
+	                <message>Maven artifacts for json-core ${project.version}</message>
 	                <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 	                <branch>refs/heads/mvn-repo</branch>
 	                <includes><include>**/*</include></includes>
 	                <repositoryName>java-json</repositoryName>
 	                <repositoryOwner>mercadolibre</repositoryOwner>
 	            	<noJekyll>true</noJekyll>
-	                <merge>true</merge>
 	            </configuration>
 				<executions>
 					<execution>
@@ -155,40 +121,5 @@
 
 		</plugins>
 	</build>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>com.mercadolibre.json</groupId>
-			<artifactId>json-core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<version>2.3</version>
-			<classifier>jdk15</classifier>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.8.4</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
- 		</dependency>		 		
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
 
 </project>
